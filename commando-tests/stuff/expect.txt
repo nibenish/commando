@@ -1,0 +1,264 @@
+@> ls -l -a -F
+@> gcc --help
+@> sleep 2
+@> wait-for 0
+@!!! ls[%%%%%1]: EXIT(0)
+@!!! gcc[%%%%%2]: EXIT(0)
+@> list
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    %%%%%1       0    EXIT(0) 2239 ls -l -a -F 
+1    %%%%%2       0    EXIT(0) 3936 gcc --help 
+2    %%%%%3      -1        RUN   -1 sleep 2 
+@> cat Makefile
+@> pause 0 1
+@!!! cat[%%%%%4]: EXIT(0)
+@> output-for 1
+@<<< Output for gcc[%%%%%2] (3936 bytes):
+----------------------------------------
+Usage: gcc [options] file...
+Options:
+  -pass-exit-codes         Exit with highest error code from a phase.
+  --help                   Display this information.
+  --target-help            Display target specific command line options.
+  --help={common|optimizers|params|target|warnings|[^]{joined|separate|undocumented}}[,...].
+                           Display specific types of command line options.
+  (Use '-v --help' to display command line options of sub-processes).
+  --version                Display compiler version information.
+  -dumpspecs               Display all of the built in spec strings.
+  -dumpversion             Display the version of the compiler.
+  -dumpmachine             Display the compiler's target processor.
+  -print-search-dirs       Display the directories in the compiler's search path.
+  -print-libgcc-file-name  Display the name of the compiler's companion library.
+  -print-file-name=<lib>   Display the full path to library <lib>.
+  -print-prog-name=<prog>  Display the full path to compiler component <prog>.
+  -print-multiarch         Display the target's normalized GNU triplet, used as
+                           a component in the library path.
+  -print-multi-directory   Display the root directory for versions of libgcc.
+  -print-multi-lib         Display the mapping between command line options and
+                           multiple library search directories.
+  -print-multi-os-directory Display the relative path to OS libraries.
+  -print-sysroot           Display the target libraries directory.
+  -print-sysroot-headers-suffix Display the sysroot suffix used to find headers.
+  -Wa,<options>            Pass comma-separated <options> on to the assembler.
+  -Wp,<options>            Pass comma-separated <options> on to the preprocessor.
+  -Wl,<options>            Pass comma-separated <options> on to the linker.
+  -Xassembler <arg>        Pass <arg> on to the assembler.
+  -Xpreprocessor <arg>     Pass <arg> on to the preprocessor.
+  -Xlinker <arg>           Pass <arg> on to the linker.
+  -save-temps              Do not delete intermediate files.
+  -save-temps=<arg>        Do not delete intermediate files.
+  -no-canonical-prefixes   Do not canonicalize paths when building relative
+                           prefixes to other gcc components.
+  -pipe                    Use pipes rather than intermediate files.
+  -time                    Time the execution of each subprocess.
+  -specs=<file>            Override built-in specs with the contents of <file>.
+  -std=<standard>          Assume that the input sources are for <standard>.
+  --sysroot=<directory>    Use <directory> as the root directory for headers
+                           and libraries.
+  -B <directory>           Add <directory> to the compiler's search paths.
+  -v                       Display the programs invoked by the compiler.
+  -###                     Like -v but options quoted and commands not executed.
+  -E                       Preprocess only; do not compile, assemble or link.
+  -S                       Compile only; do not assemble or link.
+  -c                       Compile and assemble, but do not link.
+  -o <file>                Place the output into <file>.
+  -pie                     Create a position independent executable.
+  -shared                  Create a shared library.
+  -x <language>            Specify the language of the following input files.
+                           Permissible languages include: c c++ assembler none
+                           'none' means revert to the default behavior of
+                           guessing the language based on the file's extension.
+
+Options starting with -g, -f, -m, -O, -W, or --param are automatically
+ passed on to the various sub-processes invoked by gcc.  In order to pass
+ other options on to these processes the -W<letter> options must be used.
+
+For bug reporting instructions, please see:
+<https://bugs.archlinux.org/>.
+----------------------------------------
+@> output-all
+@<<< Output for ls[%%%%%1] (2239 bytes):
+----------------------------------------
+total 400
+drwxr-xr-x 3 kauffman kauffman  4096 Sep 17 23:26 ./
+drwxr-xr-x 3 kauffman kauffman  4096 Sep 12 16:51 ../
+-rw-rw---- 1 kauffman kauffman     0 Sep 17 23:26 actual.txt
+-rwxrwx--- 1 kauffman kauffman 13968 Sep  9 19:41 a.out*
+-rw-rw---- 1 kauffman kauffman  9524 Sep 17 22:59 cmd.c
+-rw-r--r-- 1 kauffman kauffman  3965 Sep 10 22:03 cmd.c~
+-rw-rw---- 1 kauffman kauffman  1943 Sep 17 23:01 cmdctl.c
+-rw-r--r-- 1 kauffman kauffman     2 Sep 10 22:05 cmdctl.c~
+-rw-rw---- 1 kauffman kauffman  8280 Sep 17 23:04 cmdctl.o
+-rw-rw---- 1 kauffman kauffman 12312 Sep 17 22:59 cmd.o
+-rwxrwx--- 1 kauffman kauffman 31152 Sep 17 23:04 commando*
+-rw-rw---- 1 kauffman kauffman  4600 Sep 17 22:54 commando.c
+-rw-r--r-- 1 kauffman kauffman   164 Sep  9 14:38 commando.c~
+-rw-rw---- 1 kauffman kauffman  2374 Sep 17 22:46 commando.h
+-rw-r--r-- 1 kauffman kauffman   156 Sep  9 16:13 commando.h~
+-rw-rw---- 1 kauffman kauffman 13288 Sep 17 22:54 commando.o
+-rwxrw---- 1 kauffman kauffman   408 Sep 17 23:26 commando-tests.sh*
+-rwxrw---- 1 kauffman kauffman  4811 Sep 17 16:34 commando-tests.sh~*
+-rw-rw---- 1 kauffman kauffman     0 Sep 17 23:26 expect.txt
+-rw-rw---- 1 kauffman kauffman   251 Sep 16 09:28 extras.c
+drwxrwx--- 8 kauffman kauffman  4096 Sep 17 22:57 .git/
+-rw-rw---- 1 kauffman kauffman    42 Sep 16 09:28 .gitignore
+-rw-rw---- 1 kauffman kauffman   931 Sep 17 23:12 Makefile
+-rw-r--r-- 1 kauffman kauffman    66 Sep  9 19:40 Makefile~
+-rw-r--r-- 1 kauffman kauffman  1201 Sep 10 17:45 multi_wait.c~
+-rwxrw---- 1 kauffman kauffman    19 Sep 17 16:50 standard_pids.sh~*
+-rwxrw---- 1 kauffman kauffman   499 Sep 17 23:23 stdpids*
+-rw-rw---- 1 kauffman kauffman    19 Sep 17 16:56 stdpids~
+-rwxrwx--- 1 kauffman kauffman 11048 Sep 17 17:43 test_args*
+-rw-rw---- 1 kauffman kauffman   172 Sep 16 09:28 test_args.c
+-rw-r--r-- 1 kauffman kauffman   154 Sep  9 19:38 test_args.c~
+-rw-rw---- 1 kauffman kauffman   779 Sep 17 23:03 util.c
+-rw-r--r-- 1 kauffman kauffman   830 Sep 10 22:06 util.c~
+-rw-rw---- 1 kauffman kauffman  6536 Sep 17 23:04 util.o
+-rwxr-xr-x 1 kauffman kauffman 12360 Sep 10 18:59 waitcheck*
+-rw-rw---- 1 kauffman kauffman  1632 Sep 16 09:28 waitcheck.c
+-rw-r--r-- 1 kauffman kauffman  2115 Sep 10 17:47 waitcheck.c~
+----------------------------------------
+@<<< Output for gcc[%%%%%2] (3936 bytes):
+----------------------------------------
+Usage: gcc [options] file...
+Options:
+  -pass-exit-codes         Exit with highest error code from a phase.
+  --help                   Display this information.
+  --target-help            Display target specific command line options.
+  --help={common|optimizers|params|target|warnings|[^]{joined|separate|undocumented}}[,...].
+                           Display specific types of command line options.
+  (Use '-v --help' to display command line options of sub-processes).
+  --version                Display compiler version information.
+  -dumpspecs               Display all of the built in spec strings.
+  -dumpversion             Display the version of the compiler.
+  -dumpmachine             Display the compiler's target processor.
+  -print-search-dirs       Display the directories in the compiler's search path.
+  -print-libgcc-file-name  Display the name of the compiler's companion library.
+  -print-file-name=<lib>   Display the full path to library <lib>.
+  -print-prog-name=<prog>  Display the full path to compiler component <prog>.
+  -print-multiarch         Display the target's normalized GNU triplet, used as
+                           a component in the library path.
+  -print-multi-directory   Display the root directory for versions of libgcc.
+  -print-multi-lib         Display the mapping between command line options and
+                           multiple library search directories.
+  -print-multi-os-directory Display the relative path to OS libraries.
+  -print-sysroot           Display the target libraries directory.
+  -print-sysroot-headers-suffix Display the sysroot suffix used to find headers.
+  -Wa,<options>            Pass comma-separated <options> on to the assembler.
+  -Wp,<options>            Pass comma-separated <options> on to the preprocessor.
+  -Wl,<options>            Pass comma-separated <options> on to the linker.
+  -Xassembler <arg>        Pass <arg> on to the assembler.
+  -Xpreprocessor <arg>     Pass <arg> on to the preprocessor.
+  -Xlinker <arg>           Pass <arg> on to the linker.
+  -save-temps              Do not delete intermediate files.
+  -save-temps=<arg>        Do not delete intermediate files.
+  -no-canonical-prefixes   Do not canonicalize paths when building relative
+                           prefixes to other gcc components.
+  -pipe                    Use pipes rather than intermediate files.
+  -time                    Time the execution of each subprocess.
+  -specs=<file>            Override built-in specs with the contents of <file>.
+  -std=<standard>          Assume that the input sources are for <standard>.
+  --sysroot=<directory>    Use <directory> as the root directory for headers
+                           and libraries.
+  -B <directory>           Add <directory> to the compiler's search paths.
+  -v                       Display the programs invoked by the compiler.
+  -###                     Like -v but options quoted and commands not executed.
+  -E                       Preprocess only; do not compile, assemble or link.
+  -S                       Compile only; do not assemble or link.
+  -c                       Compile and assemble, but do not link.
+  -o <file>                Place the output into <file>.
+  -pie                     Create a position independent executable.
+  -shared                  Create a shared library.
+  -x <language>            Specify the language of the following input files.
+                           Permissible languages include: c c++ assembler none
+                           'none' means revert to the default behavior of
+                           guessing the language based on the file's extension.
+
+Options starting with -g, -f, -m, -O, -W, or --param are automatically
+ passed on to the various sub-processes invoked by gcc.  In order to pass
+ other options on to these processes the -W<letter> options must be used.
+
+For bug reporting instructions, please see:
+<https://bugs.archlinux.org/>.
+----------------------------------------
+@<<< Output for sleep[%%%%%3] (-1 bytes):
+----------------------------------------
+sleep[%%%%%3] has no output yet
+----------------------------------------
+@<<< Output for cat[%%%%%4] (931 bytes):
+----------------------------------------
+CFLAGS = -Wall -g
+CC     = gcc $(CFLAGS)
+
+all : commando test_args
+
+commando : commando.o cmd.o cmdctl.o util.o
+	$(CC) -o commando $^
+
+commando.o : commando.c commando.h
+	$(CC) -c $<
+
+cmd.o : cmd.c commando.h
+	$(CC) -c $<
+
+cmdctl.o : cmdctl.c commando.h
+	$(CC) -c $<
+
+util.o : util.c commando.h
+	$(CC) -c $<
+
+test_args : test_args.c
+	$(CC) -o test_args test_args.c 
+
+test: commando
+	export COMMANDO_ECHO=1 && \
+	printf \
+	'ls -l -a -F\n'\
+	'gcc --help\n'\
+	'sleep 2\n'\
+	'wait-for 0\n'\
+	'list\n'\
+	'cat Makefile\n'\
+	'pause 0 1\n'\
+	'output-for 1\n'\
+	'output-all\n'\
+	'list\n'\
+	'exit\n'\
+	| ./commando
+
+valgrind: commando
+	printf \
+	'ls -l -a -F\n'\
+	'gcc --help\n'\
+	'sleep 2\n'\
+	'wait-for 0\n'\
+	'list\n'\
+	'cat Makefile\n'\
+	'pause 0 1\n'\
+	'output-for 1\n'\
+	'output-all\n'\
+	'list\n'\
+	'wait-all\n'\
+	'list\n'\
+	'exit\n'\
+	| valgrind --leak-check=full ./commando --echo | stdpids
+
+
+waitcheck : waitcheck.c
+	$(CC) -o $@ $^
+----------------------------------------
+@> list
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    %%%%%1       0    EXIT(0) 2239 ls -l -a -F 
+1    %%%%%2       0    EXIT(0) 3936 gcc --help 
+2    %%%%%3      -1        RUN   -1 sleep 2 
+3    %%%%%4       0    EXIT(0)  931 cat Makefile 
+@> wait-all
+@!!! sleep[%%%%%3]: EXIT(0)
+@> list
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    %%%%%1       0    EXIT(0) 2239 ls -l -a -F 
+1    %%%%%2       0    EXIT(0) 3936 gcc --help 
+2    %%%%%3       0    EXIT(0)    0 sleep 2 
+3    %%%%%4       0    EXIT(0)  931 cat Makefile 
+@> exit
